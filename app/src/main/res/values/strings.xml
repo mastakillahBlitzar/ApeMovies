@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">APE Movies</string>
+    <string name="movie_title">movie_title</string>
+    <string name="movie_year">movie_year</string>
+</resources>
