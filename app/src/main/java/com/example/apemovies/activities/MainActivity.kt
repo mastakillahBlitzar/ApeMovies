@@ -104,6 +104,8 @@ class MainActivity : AppCompatActivity(), AsyncTaskDelegate, MoviesClickListener
             }
         })
         movie_list.adapter = movieAdapter
+        InternetUtils.taskDelegate = this;
+        callService();
     }
 
     private fun addObserver() {
@@ -111,7 +113,6 @@ class MainActivity : AppCompatActivity(), AsyncTaskDelegate, MoviesClickListener
             if (results != null) {
                 if(!cachedResults.equals(results)) {
                     cachedResults = results;
-                    Log.d("resyy", results.toString())
                     if (results.size == 0) {
                         loading_panel.visibility = View.VISIBLE
                     } else {
@@ -128,8 +129,6 @@ class MainActivity : AppCompatActivity(), AsyncTaskDelegate, MoviesClickListener
 
     override fun onStart() {
         super.onStart()
-        InternetUtils.taskDelegate = this;
-        callService();
     }
 
     private fun callService() {

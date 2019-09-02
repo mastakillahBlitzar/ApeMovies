@@ -44,8 +44,9 @@ class MovieDetailActivity : AppCompatActivity() {
         runtime.text = detail!!.runtime + " minutos"
         if (writers.equals("")) writers = "desconocido"
         movie_director.text = writers;
-        if (detail!!.description.equals("") && detail!!.description == null) {
+        if (detail!!.description.equals("") || detail!!.description == null) {
             summary_tv.visibility = View.GONE
+            movie_resume.visibility = View.GONE
         } else {
             val summary = detail?.description?.replace(Regex( "<\\/?[\\w\\s]*>|<.+[\\W]>"), "")
             movie_resume.text = summary
